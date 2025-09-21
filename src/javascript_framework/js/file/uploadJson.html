@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="/">
+
+		<title>My JSP 'index.jsp' starting page</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<script src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#formdataId").click(function(){	
+					
+					
+					
+					var files1 = $('input[name="file1"]').prop('files');
+					var files2 = $('input[name="file2"]').prop('files');
+					
+					//files1[0].name 文件名称       files1[0].type  文件类型
+
+					var sections = [];
+					var fileList = [];
+					
+					var video_section = {}
+					video_section.type="video"    // text | image | video | audio
+					video_section.file=files1[0]
+					video_section.text="文本测试"
+							
+					var video_file = {}
+					video_section.ftype=files1[0].type   
+					video_section.name=files1[0].name
+					video_section.index=0
+							
+					
+					var image_section = {}
+					image_section.type="video"    // text | image | video | audio
+					image_section.file=files2[0]
+					image_section.text="文本测试"
+					
+					var image_file = {}
+					image_file.ftype = files2[0].type   
+					image_file.name = files2[0].name
+					image_file.index=1
+					
+					var params={};  
+					params.target_id="";  
+					params.title="";  
+					params.mainImage="";
+					params.bgSound="";
+					params.sections="1";
+					params.fileList="2";
+					
+					alert(params);
+					$.ajax({ 
+						url : 'http://localhost:8080/artronApp/requestJson', 
+						//url : 'http://testface.artup.com/faceSwapper/uploadImgOfMultipartFile', 
+						type : 'POST', 
+						data :  JSON.stringify(params), 
+						// 告诉jQuery不要去处理发送的数据
+						processData : false, 
+						// 告诉jQuery不要去设置Content-Type请求头
+						contentType : false,
+						dataType:"json",
+						contentType: "application/json; charset=utf-8",
+						beforeSend:function(){
+							console.log("正在进行，请稍候");
+						},
+						success : function(responseStr) { 
+							
+							console.log("成功"+responseStr);
+							
+						}, 
+						error : function(responseStr) { 
+							console.log("error");
+						} 
+					
+					})
+					
+				})
+					
+			});
+			
+			/*
+				JSON.stringify()用于从一个对象解析出字符串，如
+				var
+				 a = {a:1,b:2}
+				结果：
+				JSON.stringify(a)
+
+				"{"a":1,"b":2}"
+				
+				
+				
+				JSON.parse用于从一个字符串中解析出json对象,如
+				var str = '{"name":"huangxiaojian","age":"23"}'
+				结果：
+				JSON.parse(str)
+
+				Object
+
+				age: "23"
+				name: "huangxiaojian"
+				__proto__: Object
+
+			*/
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		<form action="" id="form1" method="POST" enctype="multipart/form-data">
+			<input type="text" name="text" value="2165817"/>
+			<!--input type="file" name="file" id="upload"/-->
+			<input type="file" name="file1" value="文件1"/>
+			<br/>
+			<input type="text" name="text" value="2165817"/>
+			<input type="file" name="file2" value="文件2"/>
+		</form>
+		<input type="button" value="测试formData提交base64字符串问题" id="formdataId"/>
+	</body>
+</html>

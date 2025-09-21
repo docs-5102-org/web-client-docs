@@ -1,0 +1,246 @@
+.vp-toc-placeholder {
+  /* 移除默认的占位符样式 */
+  position: fixed !important;
+  top: 100px; /* 距离顶部的距离 */
+  right: 20px; /* 距离右侧的距离 */
+  width: 200px; /* 目录宽度 */
+  height: auto;
+  max-height: calc(100vh - 120px); /* 最大高度，避免超出屏幕 */
+  z-index: 10;
+  
+  /* 确保不影响页面布局 */
+  margin: 0;
+  padding: 0;
+}
+
+#toc {
+  position: static !important;
+  background: var(--vp-c-bg-soft, #f8f8f8);
+  border: 1px solid var(--vp-c-divider, #e2e8f0);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+/* 目录标题样式 */
+.vp-toc-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-text-1, #2c3e50);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--vp-c-divider-light, #f0f0f0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 目录列表样式*/
+.vp-toc-wrapper {
+    // 强制展开所有层级
+    height: auto;
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  .vp-toc-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    /* 强制显示所有嵌套列表 */
+    ul.vp-toc-list {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      height: auto !important;
+      overflow: visible !important;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    
+    .vp-toc-item {
+      margin: 4px 0;
+      
+      /* 禁用任何可能的折叠功能 */
+      &.collapsed,
+      &.expandable {
+        .vp-toc-list {
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          height: auto !important;
+          max-height: none !important;
+        }
+      }
+      
+      .vp-toc-link {
+        display: block;
+        padding: 4px 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 13px;
+        line-height: 1.4;
+        color: var(--vp-c-text-2, #476582);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        
+        &:hover {
+          background: var(--vp-c-default-soft, #f1f5f9);
+          color: var(--vp-c-brand, #3eaf7c);
+        }
+        
+        &.active {
+          background: var(--vp-c-brand-soft, #e6f7ff);
+          color: var(--vp-c-brand, #3eaf7c);
+          font-weight: 500;
+        }
+        
+        /* 不同层级的缩进 */
+        &.level1 {
+          padding-left: 8px;
+          font-weight: 500;
+        }
+        
+        &.level2 {
+          padding-left: 24px;
+        }
+        
+        &.level3 {
+          padding-left: 40px;
+          font-size: 12px;
+        }
+        
+        &.level4 {
+          padding-left: 56px;
+          font-size: 11px;
+        }
+        
+        &.level5 {
+          padding-left: 72px;
+          font-size: 11px;
+        }
+        
+        &.level6 {
+          padding-left: 88px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* 移除所有可能的折叠指示器和控件 */
+.vp-toc-item {
+  .expand-toggle,
+  .collapse-toggle,
+  .toggle-icon,
+  .expand-icon,
+  .collapse-icon {
+    display: none !important;
+  }
+  
+  /* 移除可能的伪元素指示器 */
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}
+
+/* 确保所有链接都可以点击但不会触发折叠 */
+.vp-toc-link {
+  pointer-events: auto !important;
+  
+  /* 移除可能的折叠相关伪元素 */
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}
+
+/* 强制显示所有子级目录 */
+.vp-toc-list .vp-toc-list {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  transition: none !important;
+}
+
+/* 目录标记器（当前位置指示器）*/
+.vp-toc-marker {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 20px;
+  background: var(--vp-c-brand, #3eaf7c);
+  border-radius: 1px;
+  transition: top 0.3s ease;
+  opacity: 0.8;
+}
+
+/* 打印按钮样式 */
+.print-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  color: var(--vp-c-text-3, #8492a6);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--vp-c-default-soft, #f1f5f9);
+    color: var(--vp-c-text-1, #2c3e50);
+  }
+  
+  .print-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* 禁用JavaScript可能添加的隐藏样式 */
+[data-collapsed="true"] .vp-toc-list,
+.collapsed .vp-toc-list,
+.vp-toc-list[style*="display: none"],
+.vp-toc-list[style*="visibility: hidden"],
+.vp-toc-list[style*="height: 0"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 1280px) {
+  .vp-toc-placeholder {
+    display: none; /* 在较小屏幕上隐藏 */
+  }
+}
+
+/* 确保主内容区域给目录留出空间 */
+@media (min-width: 1281px) {
+  .vp-doc {
+    margin-right: 280px; /* 为右侧目录留出空间 */
+  }
+}
+
+/* 额外的强制显示规则，确保任何动态隐藏都被覆盖 */
+.vp-toc-wrapper * {
+  &[style*="display: none"] {
+    display: block !important;
+  }
+  
+  &[style*="visibility: hidden"] {
+    visibility: visible !important;
+  }
+  
+  &[style*="opacity: 0"] {
+    opacity: 1 !important;
+  }
+}

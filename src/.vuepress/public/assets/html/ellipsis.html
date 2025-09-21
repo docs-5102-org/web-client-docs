@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS文本省略号效果演示</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .demo-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-section:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .demo-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .demo-title::before {
+            content: "✨";
+            margin-right: 10px;
+        }
+
+        .demo-text {
+            background: #f8f9ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+
+        /* 单行省略号样式 */
+        .single-line-ellipsis {
+            white-space: nowrap;        /* 禁止换行 */
+            overflow: hidden;           /* 隐藏溢出内容 */
+            text-overflow: ellipsis;    /* 显示省略号 */
+            width: 100%;                /* 设定宽度 */
+            max-width: 300px;
+            background: #fff3cd;
+            padding: 10px;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+        }
+
+        /* 多行省略号样式 - webkit方法 */
+        .multi-line-ellipsis {
+            display: -webkit-box;           /* 弹性伸缩盒子 */
+            -webkit-box-orient: vertical;   /* 垂直排列 */
+            -webkit-line-clamp: 3;          /* 限制为 3 行 */
+            overflow: hidden;               /* 超出隐藏 */
+            text-overflow: ellipsis;        /* 显示省略号 */
+            line-height: 1.6;
+            max-height: 4.8em;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+        }
+
+        .code-block {
+            background: #2d3748; /* 深色背景 */
+            color: #e2e8f0; /* 文字颜色 */
+            border-radius: 8px; /* 圆角稍微大一点更柔和 */
+            font-family: 'Fira Code', 'Monaco', 'Menlo', 'Consolas', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            padding: 16px 20px; /* 内边距更大一些 */
+            line-height: 1.6; /* 行距更舒适 */
+            margin: 16px 0;
+            overflow-x: auto; /* 横向滚动 */
+            white-space: pre; /* 保留代码缩进 */
+            -webkit-overflow-scrolling: touch; /* 移动端滑动更顺畅 */
+            
+            /* 增加阴影，提升层次感 */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        /* 可选：代码块中的滚动条样式 */
+        .code-block::-webkit-scrollbar {
+            height: 8px;
+        }
+        .code-block::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 4px;
+        }
+        .code-block::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+
+        .long-text {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .responsive-ellipsis {
+                -webkit-line-clamp: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CSS文本省略号效果演示</h1>
+        <div class="demo-section">
+            <div class="demo-title">单行文本省略号</div>
+            <p class="long-text">当文本内容超出容器宽度时，自动显示省略号：</p>
+            <div class="demo-text">
+                <div class="single-line-ellipsis">
+                    这是一段非常长的文本内容，当它超出容器的宽度限制时，会自动显示省略号来表示还有更多内容未显示完全。
+                </div>
+            </div>
+            <div class="code-block">
+.single-line-ellipsis {
+    white-space: nowrap;        /* 禁止换行 */
+    overflow: hidden;           /* 隐藏溢出内容 */
+    text-overflow: ellipsis;    /* 显示省略号 */
+    width: 100%;                /* 设定宽度 */
+}
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">多行文本省略号 (webkit方法)</div>
+            <p class="long-text">限制显示行数，超出部分用省略号代替：</p>
+            <div class="demo-text">
+                <div class="multi-line-ellipsis">
+                    这是一段很长的文本内容，用来演示多行文本省略号的效果。当文本内容超过指定的行数时，多余的内容会被隐藏，并在最后一行的末尾显示省略号。这种方法使用了webkit的line-clamp属性，具有良好的浏览器支持度，是目前最推荐的多行省略号实现方案。
+                    这是一段很长的文本内容，用来演示多行文本省略号的效果。当文本内容超过指定的行数时，多余的内容会被隐藏，并在最后一行的末尾显示省略号。这种方法使用了webkit的line-clamp属性，具有良好的浏览器支持度，是目前最推荐的多行省略号实现方案。
+                </div>
+            </div>
+            <div class="code-block">
+.multi-line-ellipsis {
+    display: -webkit-box;           /* 弹性伸缩盒子 */
+    -webkit-box-orient: vertical;   /* 垂直排列 */
+    -webkit-line-clamp: 3;          /* 限制为 3 行 */
+    overflow: hidden;               /* 超出隐藏 */
+    text-overflow: ellipsis;        /* 显示省略号 */
+}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
