@@ -10,6 +10,16 @@ category:
 
 ## 📋 图标库一览表
 
+### React 生态图标库
+
+| 图标库名称 | 定位 | 使用场景 | 集成方式 | 官网 |
+|------------|------|----------|----------|------|
+| **Lucide React**   | 🌟 主要图标库 | UI 组件、业务场景  | shadcn/ui 自动安装 | [lucide.dev](https://lucide.dev) |
+| **Tabler Icons**   | 🎨 辅助图标库 | 品牌图标、特殊场景 | 手动安装           | [tabler-icons.io](https://tabler-icons.io) |
+| **Radix UI Icons** | ⚙️ 内置图标库 | Radix UI 组件内部  | Radix 组件依赖     | [icons.radix-ui.com](https://icons.radix-ui.com) |
+
+### 通用图标库
+
 | 图标库名称 | 网址 | 图标数量 | 主要特点 | 支持格式 | 许可证 |
 |------------|------|----------|----------|----------|--------|
 | **Font Awesome** | [fontawesome.com](https://fontawesome.com/) | 2000+ | 世界最受欢迎，免费+付费版本 | Web字体、SVG、CSS | 免费+商业 |
@@ -64,7 +74,8 @@ category:
 
 | 项目类型 | 推荐图标库 | 理由 |
 |----------|------------|------|
-| **React/Vue 项目** | Heroicons, Feather | Tree-shaking友好，组件化 |
+| **React + shadcn/ui** | Lucide React, Radix Icons | 原生集成，完美配合组件库 |
+| **React 通用项目** | Heroicons, Feather | Tree-shaking友好，组件化 |
 | **Bootstrap 项目** | Bootstrap Icons | 原生集成，风格统一 |
 | **Material Design** | Material Icons | Google官方，设计规范 |
 | **移动App** | Ionicons, Eva Icons | 针对移动端优化 |

@@ -268,6 +268,15 @@ pnpm add @vuepress/helper@next -D
 
 参考文档：[https://ecosystem.vuejs.press/zh/themes/default/config.html#sidebar](https://ecosystem.vuejs.press/zh/themes/default/config.html#sidebar)
 
+### 右侧小目录 二级目录 右侧锚点
+
+参考文档：
+
+[https://www.cnblogs.com/dingshaohua/p/16618802.html](https://www.cnblogs.com/dingshaohua/p/16618802.html)
+
+https://github.com/dingshaohua-com/vuepress-plugin-anchor-right
+
+
 ### 组件替换
 
 默认主题提供了替换单个组件的能力，参考：

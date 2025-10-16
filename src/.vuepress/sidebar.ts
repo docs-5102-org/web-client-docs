@@ -162,7 +162,9 @@ export default sidebar({
         "wordpress",
         "html2canvas",
         "icons",
-        "fonts"
+        "fonts",
+        "rimraf",
+        "prompts"
       ],
     },
     {

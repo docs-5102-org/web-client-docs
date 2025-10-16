@@ -13,7 +13,6 @@ category:
 | :----------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- |
 | https://www.reddit.com/search/?q=next.js++template&cId=fe9f63b9-7a15-4567-8369-0820ac18398a&iId=d0777945-d1d7-4c0a-9a08-058e48045c49 | 600 多个 Next.js 模板和主题 |
 | https://www.builtatlightspeed.com/category/nextjs                                                                                    | 国外模版合集                |
-
 ## 🚀 开源后台面板项目
 
 ### 🔥 热门推荐项目
@@ -24,6 +23,24 @@ category:
 | **Next Shadcn Admin Dashboard** | https://github.com/arhamkhnz/next-shadcn-admin-dashboard  | • Next.js 15 + TypeScript<br>• 多租户支持<br>• RBAC 权限控制<br>• 现代管理面板模板                                                                                                                                 | 企业项目，SaaS 平台   |
 | **Horizon AI Boilerplate**      | https://github.com/horizon-ui/shadcn-nextjs-boilerplate   | • 首个 ChatGPT 管理面板模板<br>• 30+ 深色/浅色组件<br>• 专注 AI SaaS 应用<br>• 完整文档支持                                                                                                                        | AI 项目，ChatGPT 应用 |
 | Next-js-Boilerplate             | https://github.com/ixartz/Next-js-Boilerplate             | 是一个非常受欢迎的开源 Next.js 样板项目，已经获得了 6000+ GitHub stars 🚀 Next.js Boilerplate just hit 6000+ ⭐ stars on GitHub! 🔥 6️⃣0️⃣0️⃣0️⃣ 🔥 - DEV Community，是一个功能全面且注重开发者体验的企业级 Next.js 启动模板。 | 企业项目              |
+
+
+## 📦 模板资源汇总（分类）
+
+### 模板市场 / 模版聚合站
+- [Vercel Templates — Next.js](https://vercel.com/templates/next.js) — 官方模板集合，适合快速启动项目模板选择。
+- [NextAdmin](https://nextadmin.co/) — 专注管理面板与后台模板的聚合站点，适合寻找 admin 面板主题。
+- [ThemeFisher — Next.js Templates](https://themefisher.com/nextjs-templates) — 商业与免费模板混合，侧重页面与后台主题。
+- [Wrappixel — Next.js Templates](https://www.wrappixel.com/templates/category/nextjs-templates/) — 提供企业级、付费模板与演示站点。
+
+### 静态站 / 页面主题资源站
+- [StaticHunt](https://statichunt.com/) — 静态网站模板与主题集合，适合 Landing / 落地页。
+- [HTMLRev](https://htmlrev.com/) — HTML / 静态站模板市场，可作为设计参考或快速搭建静态页面。
+
+### UI 套件 / 商业组件库
+- [Horizon UI](https://horizon-ui.com/) — UI 套件与管理面板样板，常见于企业级 dashboard 和 SaaS 项目。
+
+如果您希望我进一步将上面每个站点里的具体模板按“管理后台 / Landing / 电商 / 企业站 / 可复用组件”等类别再细分，我可以帮您抓取并列出几款推荐模板（并添加简短对比）。
 
 ### 🎯 其他精选项目
 
