@@ -56,12 +56,13 @@ export default sidebar({
       prefix: "nextjs/",
       icon: "https://nextjs.org/favicon.ico",
       collapsible: true,
-      children: [
-        "starter",
-        "guide",
-        "templates",
-        "tools",
-      ],
+      children: "structure", // 结构 
+      // children: [
+      //   "starter",
+      //   "guide",
+      //   "templates",
+      //   "tools",
+      // ],
     },
     {
       text: "Ant Design Pro",

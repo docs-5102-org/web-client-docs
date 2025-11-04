@@ -3,6 +3,8 @@ title: Next.js 教程
 category:
   - react
   - Next.js
+order:
+  - 1
 ---
 
 # Next.js 教程

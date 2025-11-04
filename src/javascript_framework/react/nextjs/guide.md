@@ -3,6 +3,8 @@ title: Next.js 快速入门指南
 category:
   - react
   - Next.js
+order:
+  - 2
 ---
 
 # Next.js 快速入门安装指南
