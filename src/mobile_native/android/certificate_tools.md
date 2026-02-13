@@ -216,6 +216,7 @@ keytool -list -v -keystore release.keystore -alias release_key -storepass passwo
 - **[APK 签名方案 v2](https://source.android.com/security/apksigning/v2)** - APK签名方案技术文档
 - **[Play App Signing](https://developer.android.com/guide/app-bundle/play-app-signing)** - Google Play应用签名服务
 - **[使用 apksigner 为 APK 签名](https://developer.android.com/studio/command-line/apksigner)** - apksigner工具使用指南
+- **[微信开放平台Android应用签名的本质及如何获取](https://blog.csdn.net/github_2011/article/details/60966976)**
 
 ## 总结
 
